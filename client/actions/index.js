@@ -1,18 +1,18 @@
-import { getFruits } from '../apis/fruits'
+import { getMission } from '../apis/mission'
 
-export const SET_FRUITS = 'SET_FRUITS'
+export const SET_MISSION = 'SET_MISSION'
 
-export function setFruits(fruits) {
+export function setMission(mission) {
   return {
-    type: SET_FRUITS,
-    payload: fruits,
+    type: SET_MISSION,
+    payload: mission,
   }
 }
 
-export function fetchFruits() {
+export function fetchMission() {
   return (dispatch) => {
-    return getFruits().then((fruits) => {
-      dispatch(setFruits(fruits))
+    return getMission().then((mission) => {
+      dispatch(setMission(mission))
     })
   }
 }

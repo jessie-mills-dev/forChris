@@ -1,37 +1,24 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
-import { fetchFruits } from '../actions'
+import { fetchMission } from '../actions'
+import { Route, Routes } from 'react-router-dom'
+import Home from './Home'
+import Incursion from './Incursion'
+import StrikeForce from './StrikeForce'
+import Onslaught from './Onslaught'
 
 function App() {
-  const fruits = useSelector((state) => state.fruits)
-  const dispatch = useDispatch()
-  useEffect(() => {
-    dispatch(fetchFruits())
-  }, [])
 
   return (
     <>
       <div className="app">
-        <h1>Warhammer Mission generator</h1>
-
-        {/* // 4 different battle sizes to choose from eg small medium large xl
-        // Each has 6 missions
-        // Select a size, and it'll auto generate a missions
-        // It will need to display the deployment zone (image) and mission rules 
-        Table mission {
-          id increment
-          points integer
-          mission_number integer
-          deployment_image text
-          mission_rules text
-        }
-        */}
-        <ul>
-          {fruits.map((fruit) => (
-            <li key={fruit}>{fruit}</li>
-          ))}
-        </ul>
+          <Routes>
+            <Route exact path='/' element={<Home />} />
+            <Route exact path='/incursion' element={<Incursion />} /> 
+            <Route exact path='/strikeForce' element={<StrikeForce />} />
+            <Route exact path= '/onslaught' element= {<Onslaught />} />
+          </Routes>
       </div>
     </>
   )

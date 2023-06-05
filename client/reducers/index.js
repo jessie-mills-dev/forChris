@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux'
 
-import fruits from './fruits'
+import mission from './mission'
 
 export default combineReducers({
-  fruits,
+  mission,
 })
