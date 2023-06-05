@@ -1,7 +1,9 @@
 import { combineReducers } from 'redux'
 
-import mission from './mission'
+import incursion from './incursion'
 
 export default combineReducers({
-  mission,
+
+  incursion,
+  // add other ones
 })

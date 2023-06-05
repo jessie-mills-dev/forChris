@@ -1,18 +1,23 @@
-import { getMission } from '../apis/mission'
+import { getIncursion } from '../apis/mission'
 
-export const SET_MISSION = 'SET_MISSION'
+// three things to create for each type of battle size here.
 
-export function setMission(mission) {
+export const SET_INCURSION = 'SET_INCURSION'
+
+
+
+export function setIncursion(incursion) {
   return {
-    type: SET_MISSION,
-    payload: mission,
+    type: SET_INCURSION,
+    payload: incursion,
   }
 }
 
-export function fetchMission() {
+export function fetchIncursion() {
   return (dispatch) => {
-    return getMission().then((mission) => {
-      dispatch(setMission(mission))
+    return getIncursion().then((incursion) => {
+      console.log(incursion)
+      dispatch(setIncursion(incursion))
     })
   }
 }

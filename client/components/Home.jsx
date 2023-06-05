@@ -1,14 +1,6 @@
-import React, { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-
-import { fetchMission } from '../actions'
+import React from 'react'
 
 function Home() {
-  const mission = useSelector((state) => state.mission)
-  const dispatch = useDispatch()
-  useEffect(() => {
-    dispatch(fetchMission())
-  }, [])
 
   return (
     <>
@@ -17,7 +9,7 @@ function Home() {
 
         <a href="/incursion"><button>Incursion</button></a>
 
-        <a href="/strikeforce"><button>Strike Force</button></a>
+        <a href="/strikeforce"><button>StrikeForce</button></a>
 
         <a href="/onslaught"><button>Onslaught</button></a>
          

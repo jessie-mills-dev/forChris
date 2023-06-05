@@ -1,21 +1,30 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
-import { fetchMission } from '../actions'
+import { fetchIncursion } from '../actions'
 
-function Result() {
-  const mission = useSelector((state) => state.mission)
-  const singleMission = mission.filter((result) => result.battle_size === 'Incursion' ? result : null)
+function Incursion() {
+  const incursion = useSelector((state) => state.incursion)
+//   const singleMission = mission.filter((result) => result.battle_size === 'Incursion' ? result : null)
   const dispatch = useDispatch()
   useEffect(() => {
-    dispatch(fetchMission())
+    dispatch(fetchIncursion())
   }, [])
+
+  function getRandomInt(max) {
+    return Math.floor(Math.random() * max);
+  }
+  
+  console.log(getRandomInt(5));
+  // Expected output: 0-5
+
+  console.log(incursion)
   return (
     <>
       <div className="results_container">
         <h1>Results</h1>
 
-        <div>{singleMission.map((res, i) => (
+        <div>{incursion.map((res, i) => (
             <div key = {i}>
                 <p>{res.battle_size}</p>
                 <img src={res.deployment_image}  alt="deployment"/>
@@ -28,4 +37,4 @@ function Result() {
   )
 }
 
-export default Result
+export default Incursion
