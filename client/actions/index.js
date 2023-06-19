@@ -16,7 +16,6 @@ export function setIncursion(incursion) {
 export function fetchIncursion() {
   return (dispatch) => {
     return getIncursion().then((incursion) => {
-      console.log(incursion)
       dispatch(setIncursion(incursion))
     })
   }

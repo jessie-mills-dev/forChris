@@ -3,7 +3,7 @@
  * @returns { Promise<void> }
  */
 exports.up = function(knex) {
-    return knex.schema.createTable("Onslaught", (table) => {
+    return knex.schema.createTable("onslaught", (table) => {
       table.increments('id')
       table.string('deployment_image')
       table.string('mission_rules')

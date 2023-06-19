@@ -2,37 +2,36 @@ import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
 import { fetchIncursion } from '../actions'
+import styles from './Incursion.module.scss'
 
 function Incursion() {
+  // This accesses your database of incursion data
   const incursion = useSelector((state) => state.incursion)
-//   const singleMission = mission.filter((result) => result.battle_size === 'Incursion' ? result : null)
+  // This is to get a list of all the images
+  const incursionImage = incursion.map(res => res.deployment_image)
+  // This is to look at how long that list is (.length) and randomly pick one
+  const randomNumber = Math.floor(Math.random() * incursionImage.length)
+  // This is matching an id in the database to the random number we generated before
+  const singleIncursion = incursion.filter(res => res.id === randomNumber)
+
   const dispatch = useDispatch()
   useEffect(() => {
     dispatch(fetchIncursion())
   }, [])
 
-  function getRandomInt(max) {
-    return Math.floor(Math.random() * max);
-  }
-  
-  console.log(getRandomInt(5));
-  // Expected output: 0-5
-
-  console.log(incursion)
   return (
     <>
-      <div className="results_container">
-        <h1>Results</h1>
-
-        <div>{incursion.map((res, i) => (
-            <div key = {i}>
+      <div className={styles.resultsContainer}>
+        <h1 className={styles.resultsh1}>Results</h1>
+        <div>{singleIncursion.map((res, i) => (
+            <div className={styles.randomizedIncursion} key = {i}>
                 <p>{res.battle_size}</p>
-                <img src={res.deployment_image}  alt="deployment"/>
+                <p>{res.mission_rules}</p>
+                <img src={res.deployment_image}  width="600" alt="deployment"/>
             </div>
-        ))}</div>
-         
+        ))}
+        </div>  
       </div>
-      
     </>
   )
 }
