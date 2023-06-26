@@ -16,7 +16,7 @@ router.get('/', (req, res) => {
 })
 
 router.get('/primary_missions', (req, res) => {
-  db.getIncursion()
+  db.getPrimary()
     .then((results) => {
       res.json({ mission: results.map((mission) => mission) })
     })

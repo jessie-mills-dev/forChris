@@ -1,9 +1,16 @@
 import { combineReducers } from 'redux'
 
-import incursion from './incursion'
+import missionRules from './missionRules'
+import deploymentZones from './deploymentZones'
+import gambits from './gambits'
+import primaryMissions from './primaryMissions'
+import secondaryMissions from './secondaryMissions'
+
 
 export default combineReducers({
-
-  incursion,
-  // add other ones
+  missionRules,
+  deploymentZones,
+  gambits,
+  primaryMissions,
+  secondaryMissions
 })

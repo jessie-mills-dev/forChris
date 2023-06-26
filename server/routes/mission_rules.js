@@ -15,8 +15,8 @@ router.get('/', (req, res) => {
     })
 })
 
-router.get('/missions_rules', (req, res) => {
-  db.getIncursion()
+router.get('/mission_rules', (req, res) => {
+  db.getRules()
     .then((results) => {
       res.json({ mission: results.map((mission) => mission) })
     })

@@ -16,7 +16,7 @@ router.get('/', (req, res) => {
 })
 
 router.get('/deployment_zones', (req, res) => {
-  db.getIncursion()
+  db.getDeployment()
     .then((results) => {
       res.json({ mission: results.map((mission) => mission) })
     })

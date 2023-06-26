@@ -1,9 +1,5 @@
 const connection = require('./connection')
 
-// function getMission(db = connection) {
-//   return db('mission').select()
-// }
-
 function getPrimary(db = connection) {
   return db('primary_missions').select()
 }
@@ -28,26 +24,9 @@ function getGambits(db = connection) {
 }
 
 module.exports = {
+  getSecondary,
+  getDeployment,
+  getRules,
+  getGambits,
   getPrimary
-  
-}
-
-module.exports = {
-  getSecondary
-  
-}
-
-module.exports = {
-  getDeployment
-  
-}
-
-module.exports = {
-  getRules
-  
-}
-
-module.exports = {
-  getGambits
-  
 }

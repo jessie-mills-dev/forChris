@@ -7,6 +7,7 @@ const router = express.Router()
 router.get('/', (req, res) => {
   db.getGambits()
     .then((results) => {
+      console.log(results)
       res.json(results.map((mission) => mission))
     })
     .catch((err) => {
@@ -16,8 +17,9 @@ router.get('/', (req, res) => {
 })
 
 router.get('/gambits', (req, res) => {
-  db.getIncursion()
+  db.getGambits()
     .then((results) => {
+      console.log(results)
       res.json({ mission: results.map((mission) => mission) })
     })
     .catch((err) => {
